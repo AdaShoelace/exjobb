@@ -26,11 +26,22 @@ namespace Pierre.Unidux
                         state.alarmClockMute = !state.alarmClockMute;
                         break;
                     case ActionType.SetLight:
-                        state.lightIntensity = ((LightIntensityAction)action).intensity;
+                        state.light = lightChange(state.light);
                         break;
                 }
 
                 return state;
+            }
+
+            private LightState lightChange(LightState oldState) {
+                if(oldState.range < 100) {
+					oldState.range += 2.0f;
+				}
+						
+                if(oldState.r > 0.2f && oldState.g > 0.2f) {
+                    return new LightState(oldState.r - .2f, oldState.g - .2f, oldState.b, oldState.range);
+                }
+                return oldState;
             }
         }
 	}

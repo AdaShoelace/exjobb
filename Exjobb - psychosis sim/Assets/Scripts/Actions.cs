@@ -19,13 +19,6 @@ namespace Pierre.Unidux
             {
                 return new Action() {ActionType = ActionType.ToggleRadio};
             }
-
-			public static Action LightIntensityAction(float i) 
-			{
-				return new LightIntensityAction() {ActionType = ActionType.SetLight, intensity = i};
-			}
-
-
         }
 	}
 
@@ -34,12 +27,6 @@ namespace Pierre.Unidux
 	{
 		public ActionType ActionType;
 	}
-
-	public class LightIntensityAction : Action
-	{
-		public float intensity;
-	}
-
 
 	// specify the possible types of actions
 	public enum ActionType
