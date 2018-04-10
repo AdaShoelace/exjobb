@@ -28,11 +28,11 @@ namespace Pierre.Unidux
                     case ActionType.SetLight:
                         state.light = lightChange(state.light);
                         break;
-                    case ActionType.EnablePillSpawn:
+                    case ActionType.BottleTilted:
                         state.spawnPill = true;
                         break;
-                    case ActionType.DisablePillSpawn:
-                        state.spawnPill = false;
+                    case ActionType.PillHasSpawned:
+                        state.pillHasSpawned = true;
                         break;
                 }
 

@@ -36,8 +36,8 @@ namespace Pierre.Unidux
 		StopPhoneSound,
 		TurnOffAlarmClock,
 		SetLight,
-		EnablePillSpawn,
-		DisablePillSpawn,
+		BottleTilted,
+		PillHasSpawned,
 	}
 }
 

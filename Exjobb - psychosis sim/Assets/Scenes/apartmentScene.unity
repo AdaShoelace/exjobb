@@ -129,7 +129,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4600989686686930, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 19.800812
+      value: 19.673
       objectReference: {fileID: 0}
     - target: {fileID: 4600989686686930, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -157,11 +157,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4600989686686930, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4600989686686930, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600989686686930, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063541668197196, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063541668197196, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063541668197196, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
@@ -1793,15 +1809,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4162244373836156, guid: 16cc15fd45d1be843886955e7452d212, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.156
+      value: -7.052
       objectReference: {fileID: 0}
     - target: {fileID: 4162244373836156, guid: 16cc15fd45d1be843886955e7452d212, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 21.31
+      value: 20.378
       objectReference: {fileID: 0}
     - target: {fileID: 4162244373836156, guid: 16cc15fd45d1be843886955e7452d212, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -19.1
+      value: -16.1
       objectReference: {fileID: 0}
     - target: {fileID: 4162244373836156, guid: 16cc15fd45d1be843886955e7452d212, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1939,6 +1955,14 @@ Prefab:
     - target: {fileID: 4162244373836156, guid: 16cc15fd45d1be843886955e7452d212, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288734145204678, guid: 16cc15fd45d1be843886955e7452d212, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.971
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288734145204678, guid: 16cc15fd45d1be843886955e7452d212, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16cc15fd45d1be843886955e7452d212, type: 2}
@@ -2961,10 +2985,7 @@ MonoBehaviour:
   listenerDirectivityAlpha: 0
   listenerDirectivitySharpness: 1
   gainDb: 0
-  nearFieldEffectEnabled: 1
-  nearFieldEffectGain: 1
-  occlusionEnabled: 1
-  occlusionIntensity: 1
+  occlusionEnabled: 0
   quality: 2
 --- !u!114 &275479879
 MonoBehaviour:
@@ -2979,18 +3000,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableWhenIdle: 1
-  touchHighlightColor: {r: 0.78676474, g: 0.78676474, b: 0.78676474, a: 0}
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 0
-  holdButtonToGrab: 0
+  holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 275479881}
-  secondaryGrabActionScript: {fileID: 275479882}
-  isUsable: 1
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
+  isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
@@ -3076,7 +3097,7 @@ MonoBehaviour:
   grabAttachMechanicScript: {fileID: 0}
   secondaryGrabActionScript: {fileID: 0}
   isUsable: 1
-  holdButtonToUse: 0
+  holdButtonToUse: 1
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
   useOverrideButton: 0
@@ -4425,7 +4446,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4973199494299554, guid: 636eb13d93df6ca4894e5545d611f601, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -15.260002
+      value: -15.072
       objectReference: {fileID: 0}
     - target: {fileID: 4973199494299554, guid: 636eb13d93df6ca4894e5545d611f601, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4461,11 +4482,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4973199494299554, guid: 636eb13d93df6ca4894e5545d611f601, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4973199494299554, guid: 636eb13d93df6ca4894e5545d611f601, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973199494299554, guid: 636eb13d93df6ca4894e5545d611f601, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 636eb13d93df6ca4894e5545d611f601, type: 2}
@@ -7773,15 +7798,15 @@ MonoBehaviour:
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 0
-  holdButtonToGrab: 0
+  holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 0}
   secondaryGrabActionScript: {fileID: 0}
-  isUsable: 1
-  holdButtonToUse: 0
+  isUsable: 0
+  holdButtonToUse: 1
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
   useOverrideButton: 0
@@ -7803,15 +7828,15 @@ MonoBehaviour:
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 0
-  holdButtonToGrab: 0
-  stayGrabbedOnTeleport: 0
+  holdButtonToGrab: 1
+  stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 0}
   secondaryGrabActionScript: {fileID: 0}
   isUsable: 1
-  holdButtonToUse: 0
+  holdButtonToUse: 1
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
   useOverrideButton: 0
@@ -7834,11 +7859,8 @@ MonoBehaviour:
   directivitySharpness: 1
   listenerDirectivityAlpha: 0
   listenerDirectivitySharpness: 1
-  gainDb: 0
-  nearFieldEffectEnabled: 0
-  nearFieldEffectGain: 1
-  occlusionEnabled: 1
-  occlusionIntensity: 1
+  gainDb: -18.9
+  occlusionEnabled: 0
   quality: 2
 --- !u!82 &840672052
 AudioSource:
@@ -7847,7 +7869,7 @@ AudioSource:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 840672045}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 248799cb4acba48f7b3ee842a80f788c,
     type: 2}
@@ -7930,7 +7952,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 840672045}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -3.059, y: 19.7, z: -15.86}
+  m_LocalPosition: {x: -3.059, y: 19.626, z: -15.86}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 1468787497}
@@ -9429,7 +9451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947b27445602ed640b885db7e667dfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabButton: 7
+  grabButton: 3
   grabPrecognition: 0
   throwMultiplier: 1
   createRigidBodyWhenNotTouching: 0
@@ -9459,7 +9481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65eb64f0f2fd6d64faddbcf5d7d3bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useButton: 4
+  useButton: 3
   controllerEvents: {fileID: 0}
   interactTouch: {fileID: 0}
   interactGrab: {fileID: 0}
@@ -10514,7 +10536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947b27445602ed640b885db7e667dfc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabButton: 7
+  grabButton: 3
   grabPrecognition: 0
   throwMultiplier: 1
   createRigidBodyWhenNotTouching: 0
@@ -10544,7 +10566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65eb64f0f2fd6d64faddbcf5d7d3bdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useButton: 4
+  useButton: 3
   controllerEvents: {fileID: 0}
   interactTouch: {fileID: 0}
   interactGrab: {fileID: 0}
@@ -10957,11 +10979,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4600989686686930, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 19.800812
+      value: 19.673
       objectReference: {fileID: 0}
     - target: {fileID: 4600989686686930, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -17.357002
+      value: -17.458
       objectReference: {fileID: 0}
     - target: {fileID: 4600989686686930, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
       propertyPath: m_LocalRotation.x
@@ -10989,11 +11011,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4600989686686930, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4600989686686930, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600989686686930, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063541668197196, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063541668197196, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4063541668197196, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e48dd469966b5984bbae1a56f63cf7b3, type: 2}
@@ -11718,17 +11756,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableWhenIdle: 1
-  touchHighlightColor: {r: 0.60294116, g: 0.60294116, b: 0.60294116, a: 0}
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   allowedTouchControllers: 0
   ignoredColliders: []
-  isGrabbable: 1
+  isGrabbable: 0
   holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 1172406544}
-  secondaryGrabActionScript: {fileID: 1172406543}
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -13477,11 +13515,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4070819004807536, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 20.625319
+      value: 20.34619
       objectReference: {fileID: 0}
     - target: {fileID: 4070819004807536, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -17.38752
+      value: -17.485
       objectReference: {fileID: 0}
     - target: {fileID: 4070819004807536, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_LocalRotation.x
@@ -13505,15 +13543,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4070819004807536, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4070819004807536, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4070819004807536, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.7400065
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1689179629799800, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_StaticEditorFlags
@@ -14601,15 +14639,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 2d3e18e5e0c49b94785f67f1174d1dc3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.9939
+      value: -14.9352
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2d3e18e5e0c49b94785f67f1174d1dc3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.178
+      value: 20.021
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2d3e18e5e0c49b94785f67f1174d1dc3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.851
+      value: -17.8921
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2d3e18e5e0c49b94785f67f1174d1dc3, type: 3}
       propertyPath: m_LocalRotation.x
@@ -16064,11 +16102,8 @@ MonoBehaviour:
   directivitySharpness: 1
   listenerDirectivityAlpha: 0
   listenerDirectivitySharpness: 1
-  gainDb: -0.6
-  nearFieldEffectEnabled: 1
-  nearFieldEffectGain: 1
+  gainDb: 0
   occlusionEnabled: 0
-  occlusionIntensity: 1
   quality: 2
 --- !u!82 &1701271297
 AudioSource:
@@ -16172,9 +16207,9 @@ MonoBehaviour:
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 1701271306}
-  secondaryGrabActionScript: {fileID: 1701271305}
-  isUsable: 1
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
+  isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
@@ -17684,7 +17719,7 @@ MonoBehaviour:
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   allowedTouchControllers: 0
   ignoredColliders: []
-  isGrabbable: 0
+  isGrabbable: 1
   holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
@@ -17780,14 +17815,14 @@ MonoBehaviour:
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   allowedTouchControllers: 0
   ignoredColliders: []
-  isGrabbable: 1
-  holdButtonToGrab: 0
+  isGrabbable: 0
+  holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 1838171686}
-  secondaryGrabActionScript: {fileID: 1838171685}
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -18350,9 +18385,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 1918238762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff05f9cc6d5880c45879a47a7cde358c, type: 3}
+  m_Script: {fileID: 11500000, guid: 174429e04b0388249a137b2dc0050b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableTeleport: 1
+  targetListPolicy: {fileID: 0}
+  enableBodyCollisions: 1
+  ignoreGrabbedCollisions: 1
+  ignoreCollisionsWith: []
+  headsetYOffset: 0.2
+  movementThreshold: 0.0015
+  playAreaMovementThreshold: 0.00075
+  standingHistorySamples: 5
+  leanYThreshold: 0.5
+  stepUpYOffset: 0.15
+  stepThicknessMultiplier: 0.5
+  stepDropThreshold: 0.08
+  customRaycast: {fileID: 0}
+  layersToIgnore:
+    serializedVersion: 2
+    m_Bits: 4
+  fallRestriction: 0
+  gravityFallYThreshold: 1
+  blinkYThreshold: 0.15
+  floorHeightTolerance: 0.001
+  fallCheckPrecision: 5
+  teleporter: {fileID: 0}
+  customBodyColliderContainer: {fileID: 0}
+  customFootColliderContainer: {fileID: 0}
 --- !u!1001 &1919531476
 Prefab:
   m_ObjectHideFlags: 0
@@ -20113,11 +20173,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4070819004807536, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 20.625319
+      value: 20.34619
       objectReference: {fileID: 0}
     - target: {fileID: 4070819004807536, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -18.530518
+      value: -18.49
       objectReference: {fileID: 0}
     - target: {fileID: 4070819004807536, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_LocalRotation.x
@@ -20141,15 +20201,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4070819004807536, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4070819004807536, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4070819004807536, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.7400065
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 1689179629799800, guid: cdd3e03f4297ea84abcc5ab2f1655adc, type: 2}
       propertyPath: m_StaticEditorFlags

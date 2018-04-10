@@ -65,7 +65,7 @@ namespace Pierre.Unidux
             {
                 var sb = new System.Text.StringBuilder();
                 sb.AppendLine("Previous: " + JsonConvert.SerializeObject((SceneState)store.ObjectState));
-                sb.AppendLine("Action: " + JsonConvert.SerializeObject(action.ToString()));
+                sb.AppendLine("Action: " + JsonConvert.SerializeObject(((Action)action).ActionType.ToString()));
                 var result = next(action);
                 sb.AppendLine("Next state: " + JsonConvert.SerializeObject((SceneState)store.ObjectState));
                 Debug.Log(sb.ToString());

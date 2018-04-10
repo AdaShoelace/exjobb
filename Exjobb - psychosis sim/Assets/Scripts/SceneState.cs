@@ -13,7 +13,8 @@ namespace Pierre.Unidux
    
       public LightState light = LightState.initial();
 
-      public bool spawnPill = false; 
+      public bool spawnPill = false;
+      public bool pillHasSpawned = false;
     }
 
     [Serializable]

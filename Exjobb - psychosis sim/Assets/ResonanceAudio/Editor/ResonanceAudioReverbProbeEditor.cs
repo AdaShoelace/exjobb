@@ -21,18 +21,18 @@ using System.Collections;
 [CustomEditor(typeof(ResonanceAudioReverbProbe))]
 [CanEditMultipleObjects]
 public class ResonanceAudioReverbProbeEditor : Editor {
-  private SerializedProperty regionShape = null;
-  private SerializedProperty boxRegionSize = null;
-  private SerializedProperty sphereRegionRadius = null;
+  private SerializedProperty runtimeApplicationRegionShape = null;
+  private SerializedProperty boxApplicationRegionSize = null;
+  private SerializedProperty sphereApplicationRegionRadius = null;
   private SerializedProperty onlyApplyWhenVisible = null;
   private SerializedProperty reverbGainDb = null;
   private SerializedProperty reverbBrightness = null;
   private SerializedProperty reverbTime = null;
   private SerializedProperty rt60s = null;
 
-  private GUIContent regionShapeLabel = new GUIContent("Shape");
-  private GUIContent boxRegionSizeLabel = new GUIContent("Size");
-  private GUIContent sphereRegionRadiusLabel = new GUIContent("Radius");
+  private GUIContent applicationRegionShapeLabel = new GUIContent("Shape");
+  private GUIContent boxApplicationRegionSizeLabel = new GUIContent("Size");
+  private GUIContent sphereApplicationRegionRadiusLabel = new GUIContent("Radius");
   private GUIContent onlyApplyWhenVisibleLabel = new GUIContent("Only When Visible");
   private GUIContent reverbPropertiesLabel = new GUIContent("Reverb Properties",
       "Parameters to adjust the reverb properties of the room.");
@@ -45,14 +45,15 @@ public class ResonanceAudioReverbProbeEditor : Editor {
   private Color barBackgroundColor = new Color(65.0f / 255.0f, 65.0f / 255.0f, 65.0f / 255.0f);
   private Color barColor = new Color(186.0f / 255.0f, 117.0f / 255.0f, 33.0f / 255.0f);
   private const float maxBarHeight = 100.0f;
+  private const float maxRt60 = 3.0f;
   private const int rt60ValueFieldMarginLeft = 0;
   private const int rt60ValueFieldMarginRight = 5;
   private const int rt60ValueFieldMinWidth = 20;
 
   void OnEnable () {
-    regionShape = serializedObject.FindProperty("regionShape");
-    boxRegionSize = serializedObject.FindProperty("boxRegionSize");
-    sphereRegionRadius = serializedObject.FindProperty("sphereRegionRadius");
+    runtimeApplicationRegionShape = serializedObject.FindProperty("runtimeApplicationRegionShape");
+    boxApplicationRegionSize = serializedObject.FindProperty("boxApplicationRegionSize");
+    sphereApplicationRegionRadius = serializedObject.FindProperty("sphereApplicationRegionRadius");
     onlyApplyWhenVisible = serializedObject.FindProperty("onlyApplyWhenVisible");
     reverbGainDb = serializedObject.FindProperty("reverbGainDb");
     reverbBrightness = serializedObject.FindProperty("reverbBrightness");
@@ -80,13 +81,15 @@ public class ResonanceAudioReverbProbeEditor : Editor {
 
   // Show the parameters of the region of application.
   private void DrawApplicationRegion() {
-    EditorGUILayout.PropertyField(regionShape, regionShapeLabel);
-    switch ((ResonanceAudioReverbProbe.RegionShape) regionShape.enumValueIndex) {
-      case ResonanceAudioReverbProbe.RegionShape.Sphere:
-        EditorGUILayout.PropertyField(sphereRegionRadius, sphereRegionRadiusLabel);
+    EditorGUILayout.PropertyField(runtimeApplicationRegionShape, applicationRegionShapeLabel);
+    switch ((ResonanceAudioReverbProbe.ApplicationRegionShape)
+            runtimeApplicationRegionShape.enumValueIndex) {
+      case ResonanceAudioReverbProbe.ApplicationRegionShape.Sphere:
+        EditorGUILayout.PropertyField(sphereApplicationRegionRadius,
+                                      sphereApplicationRegionRadiusLabel);
         break;
-      case ResonanceAudioReverbProbe.RegionShape.Box:
-        EditorGUILayout.PropertyField(boxRegionSize, boxRegionSizeLabel);
+      case ResonanceAudioReverbProbe.ApplicationRegionShape.Box:
+        EditorGUILayout.PropertyField(boxApplicationRegionSize, boxApplicationRegionSizeLabel);
         break;
     }
     EditorGUILayout.PropertyField(onlyApplyWhenVisible, onlyApplyWhenVisibleLabel);
@@ -126,7 +129,7 @@ public class ResonanceAudioReverbProbeEditor : Editor {
     // Draw the vertical bars.
     for (int i = 0; i < rt60s.arraySize; ++i) {
       float rt60 = isMultiEdit ? 0.0f : rt60s.GetArrayElementAtIndex(i).floatValue;
-      float barHeight = maxBarHeight * rt60 / ResonanceAudio.maxReverbTime;
+      float barHeight = rt60 / maxRt60 * maxBarHeight;
       var rt60ValueTextRect = rt60ValueTextRects[i];
 
       // Align the left end and width with the text fields showing the rt60 values.
