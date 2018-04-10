@@ -12,7 +12,8 @@ namespace Pierre.Unidux
       public bool alarmClockMute = false;
    
       public LightState light = LightState.initial();
-    
+
+      public bool spawnPill = false; 
     }
 
     [Serializable]
