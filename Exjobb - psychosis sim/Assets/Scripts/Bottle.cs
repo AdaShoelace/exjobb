@@ -12,14 +12,10 @@ namespace Pierre.Unidux
     private Vector3 SPAWN_ANGLE_LOWER = new Vector3(110.0f, 0, 110.0f);
 
     private GameObject pillSpawner;
-    private GameObject bottle;
-    private Material poisonLabel;
 
     public void Start()
     {
       pillSpawner = GameObject.Find("PillSpawner");
-      poisonLabel = Resources.Load("BottleLabelPoison", typeof(Material)) as Material;
-      bottle = GameObject.Find("bottle").transform.Find("bottle/bottle8 label").gameObject;
 
       Unidux.Subject
           .TakeUntilDisable(this)
@@ -30,7 +26,6 @@ namespace Pierre.Unidux
             {
               StartCoroutine(SpawnPill());
               Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.PillHasSpawned));
-              bottle.GetComponent<Renderer>().material = poisonLabel;
             }
           })
           .AddTo(this);
