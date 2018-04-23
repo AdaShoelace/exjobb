@@ -34,6 +34,12 @@ namespace Pierre.Unidux
                     case ActionType.PillHasSpawned:
                         state.pillHasSpawned = true;
                         break;
+                    case ActionType.BottleDropped:
+                        state.changeBottleLabel = true;
+                        break;
+                    case ActionType.BottleLabelHasChanged:
+                        state.bottleLabelHasChanged = true;
+                        break;
                 }
 
                 return state;

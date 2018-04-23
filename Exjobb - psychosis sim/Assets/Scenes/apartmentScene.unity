@@ -1813,7 +1813,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4162244373836156, guid: 16cc15fd45d1be843886955e7452d212, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 20.378
+      value: 21.276
       objectReference: {fileID: 0}
     - target: {fileID: 4162244373836156, guid: 16cc15fd45d1be843886955e7452d212, type: 2}
       propertyPath: m_LocalPosition.z
@@ -17715,7 +17715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ccd57a7c0edde44b9fc6795288a3679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableWhenIdle: 1
+  disableWhenIdle: 0
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   allowedTouchControllers: 0
   ignoredColliders: []

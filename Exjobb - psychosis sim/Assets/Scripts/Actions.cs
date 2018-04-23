@@ -38,6 +38,8 @@ namespace Pierre.Unidux
 		SetLight,
 		BottleTilted,
 		PillHasSpawned,
+		BottleDropped,
+		BottleLabelHasChanged,
 	}
 }
 

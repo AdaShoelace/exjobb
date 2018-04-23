@@ -27,6 +27,14 @@ namespace Pierre.Unidux
               StartCoroutine(SpawnPill());
               Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.PillHasSpawned));
             }
+            if (state.changeBottleLabel && !state.bottleLabelHasChanged)
+            {
+              GameObject bottleLabelComponent = GameObject.Find("bottle/bottle8 label");
+              Material label = Resources.Load("BottleLabelPoison") as Material;
+              Material[] mats = {label};
+              bottleLabelComponent.GetComponent<MeshRenderer>().materials = mats;
+              Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.BottleLabelHasChanged));
+            }
           })
           .AddTo(this);
     }
@@ -51,6 +59,11 @@ namespace Pierre.Unidux
         temp.transform.SetPositionAndRotation(pillSpawner.transform.position, pillSpawner.transform.rotation);
         yield return new WaitForSecondsRealtime(.1f);
       }
+    }
+    public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject)
+    {
+        base.Ungrabbed(previousGrabbingObject);
+        Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.BottleDropped));
     }
   }
 }

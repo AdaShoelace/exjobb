@@ -15,6 +15,8 @@ namespace Pierre.Unidux
 
       public bool spawnPill = false;
       public bool pillHasSpawned = false;
+      public bool changeBottleLabel = false;
+      public bool bottleLabelHasChanged = false;
     }
 
     [Serializable]
