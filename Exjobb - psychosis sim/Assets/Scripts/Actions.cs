@@ -40,6 +40,7 @@ namespace Pierre.Unidux
 		PillHasSpawned,
 		BottleDropped,
 		BottleLabelHasChanged,
+		PillBottleAudioHallucination,
 	}
 }
 

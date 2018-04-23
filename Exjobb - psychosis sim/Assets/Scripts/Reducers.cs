@@ -40,6 +40,11 @@ namespace Pierre.Unidux
                     case ActionType.BottleLabelHasChanged:
                         state.bottleLabelHasChanged = true;
                         break;
+
+                    //test for pill bottle audio
+                    case ActionType.PillBottleAudioHallucination:
+                        state.playPillHallucinationAudio = true;
+                        break;
                 }
 
                 return state;

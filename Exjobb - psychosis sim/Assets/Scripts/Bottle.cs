@@ -34,6 +34,8 @@ namespace Pierre.Unidux
               Material[] mats = {label};
               bottleLabelComponent.GetComponent<MeshRenderer>().materials = mats;
               Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.BottleLabelHasChanged));
+              //test 
+              Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.PillBottleAudioHallucination));
             }
           })
           .AddTo(this);
