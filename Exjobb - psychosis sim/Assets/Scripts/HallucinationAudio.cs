@@ -20,20 +20,16 @@ namespace Pierre.Unidux
                 playerSources.Add(go.transform.name, aso);
             }
 
-            foreach (var x in playerSources)
-            {
-                print("Key: " + x.Key + " Value: " + x.Value.enabled);
-            }
-
             Unidux.Subject
                         .TakeUntilDisable(this)
                         .StartWith(Unidux.State)
                         .Subscribe(state =>
                         {
                             //test
-                            if (state.playPillHallucinationAudio)
+                            if (!state.crowdWhisperIsPlaying)
                             {
-                                PlayCloseProximityAudio(Resources.Load("Voices/CrowdWhisper", typeof(AudioClip)) as AudioClip);
+                                //PlayCloseProximityAudio(Resources.Load("Voices/CrowdWhisper", typeof(AudioClip)) as AudioClip);
+                                PlayCloseProximityAmbientWhisper();
                             }
                         })
                         .AddTo(this);
@@ -44,6 +40,17 @@ namespace Pierre.Unidux
             left.clip = audioClip;
             AudioSource right = playerSources["AudioRight"];
             right.clip = audioClip;
+            left.Play();
+            right.Play();
+        }
+
+        private void PlayCloseProximityAmbientWhisper()
+        {
+            AudioClip clip = Resources.Load("Voices/CrowdWhisper", typeof(AudioClip)) as AudioClip;
+            AudioSource left = playerSources["AudioLeft"];
+            left.clip = clip;
+            AudioSource right = playerSources["AudioRight"];
+            right.clip = clip;
             left.Play();
             right.Play();
         }

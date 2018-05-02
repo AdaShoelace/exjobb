@@ -35,6 +35,9 @@ namespace Pierre.Unidux
               bottleLabelComponent.GetComponent<MeshRenderer>().materials = mats;
               Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.BottleLabelHasChanged));
               //test 
+            }
+            if(!state.crowdWhisperIsPlaying)
+            {
               Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.PillBottleAudioHallucination));
             }
           })

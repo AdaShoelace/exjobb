@@ -43,7 +43,7 @@ namespace Pierre.Unidux
 
                     //test for pill bottle audio
                     case ActionType.PillBottleAudioHallucination:
-                        state.playPillHallucinationAudio = true;
+                        state.crowdWhisperIsPlaying = true;
                         break;
                 }
 
