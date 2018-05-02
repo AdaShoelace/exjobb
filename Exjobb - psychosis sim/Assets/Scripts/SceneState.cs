@@ -19,6 +19,8 @@ namespace Pierre.Unidux
       public bool bottleLabelHasChanged = false;
       public bool crowdWhisperIsPlaying = false;
       public bool playCrowdWhisper = false;
+      public bool spawnCereal = false;
+      public bool cerealHasSpawned = false;
     }
 
     [Serializable]

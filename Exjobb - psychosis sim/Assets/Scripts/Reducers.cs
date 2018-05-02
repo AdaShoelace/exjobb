@@ -34,6 +34,12 @@ namespace Pierre.Unidux
                     case ActionType.PillHasSpawned:
                         state.pillHasSpawned = true;
                         break;
+                    case ActionType.CerealBoxTilted:
+                        state.spawnCereal = true;
+                        break;
+                    case ActionType.CerealHasSpawned:
+                        state.cerealHasSpawned = true;
+                        break;
                     case ActionType.BottleDropped:
                         state.changeBottleLabel = true;
                         break;

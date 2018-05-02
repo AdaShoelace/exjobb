@@ -41,7 +41,9 @@ namespace Pierre.Unidux
 		BottleDropped,
 		BottleLabelHasChanged,
 		PillBottleAudioHallucination,
-		CrowdIsWhispering
+		CrowdIsWhispering,
+		CerealBoxTilted,
+		CerealHasSpawned,
 	}
 }
 
