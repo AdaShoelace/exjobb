@@ -36,7 +36,7 @@ namespace Pierre.Unidux
               Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.BottleLabelHasChanged));
               //test 
             }
-            if(!state.crowdWhisperIsPlaying)
+            if(!state.crowdWhisperIsPlaying && state.bottleLabelHasChanged)
             {
               Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.PillBottleAudioHallucination));
             }

@@ -26,10 +26,12 @@ namespace Pierre.Unidux
                         .Subscribe(state =>
                         {
                             //test
-                            if (!state.crowdWhisperIsPlaying)
+                            if (state.playCrowdWhisper && !state.crowdWhisperIsPlaying)
                             {
                                 //PlayCloseProximityAudio(Resources.Load("Voices/CrowdWhisper", typeof(AudioClip)) as AudioClip);
                                 PlayCloseProximityAmbientWhisper();
+                                print("Time to play hallucination");
+                                Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.CrowdIsWhispering));
                             }
                         })
                         .AddTo(this);
