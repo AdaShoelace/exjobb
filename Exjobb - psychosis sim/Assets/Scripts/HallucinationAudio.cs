@@ -10,14 +10,21 @@ namespace Pierre.Unidux
     {
         Dictionary<string, AudioSource> playerSources = new Dictionary<string, AudioSource>();
         List<AudioSource> ambientSources = new List<AudioSource>();
-        public void Awake()
+        public void Start()
         {
-            GameObject temp = GameObject.Find("AudioParent");
+            GameObject temp = GameObject.Find("SDKManager/SDKSetups/SteamVR/[CameraRig]/Camera (head)/AudioParent");
             foreach (AudioSource go in temp.GetComponentsInChildren<AudioSource>())
             {
-                playerSources.Add(go.transform.parent.name.ToString(), go);
-                print("Parent name:" + go.transform.parent.name);
+                AudioSource aso = go.GetComponent("AudioSource") as AudioSource;
+                aso.enabled = true;
+                playerSources.Add(go.transform.name, aso);
             }
+
+            foreach (var x in playerSources)
+            {
+                print("Key: " + x.Key + " Value: " + x.Value.enabled);
+            }
+
             Unidux.Subject
                         .TakeUntilDisable(this)
                         .StartWith(Unidux.State)
@@ -26,7 +33,7 @@ namespace Pierre.Unidux
                             //test
                             if (state.playPillHallucinationAudio)
                             {
-                                PlayCloseProximityAudio(Resources.Load("Voices/Crowd Whispering") as AudioClip);
+                                PlayCloseProximityAudio(Resources.Load("Voices/CrowdWhisper", typeof(AudioClip)) as AudioClip);
                             }
                         })
                         .AddTo(this);
