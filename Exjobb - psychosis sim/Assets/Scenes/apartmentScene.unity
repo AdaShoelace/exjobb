@@ -1947,32 +1947,32 @@ Prefab:
         type: 2}
       propertyPath: actualBoundaries
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 609061499}
     - target: {fileID: 114531108084819050, guid: 16cc15fd45d1be843886955e7452d212,
         type: 2}
       propertyPath: actualHeadset
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 162825421}
     - target: {fileID: 114531108084819050, guid: 16cc15fd45d1be843886955e7452d212,
         type: 2}
       propertyPath: actualLeftController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1703463006}
     - target: {fileID: 114531108084819050, guid: 16cc15fd45d1be843886955e7452d212,
         type: 2}
       propertyPath: actualRightController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 843694208}
     - target: {fileID: 114531108084819050, guid: 16cc15fd45d1be843886955e7452d212,
         type: 2}
       propertyPath: modelAliasLeftController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2110395339}
     - target: {fileID: 114531108084819050, guid: 16cc15fd45d1be843886955e7452d212,
         type: 2}
       propertyPath: modelAliasRightController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1953843495}
     - target: {fileID: 114250078536293564, guid: 16cc15fd45d1be843886955e7452d212,
         type: 2}
       propertyPath: scriptAliasLeftController
@@ -2112,6 +2112,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e763244a885c464895bf17d3f12fde4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &162825421 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1828624488323030, guid: 16cc15fd45d1be843886955e7452d212,
+    type: 2}
+  m_PrefabInternal: {fileID: 155934867}
 --- !u!1001 &167895487
 Prefab:
   m_ObjectHideFlags: 0
@@ -5981,8 +5986,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 589548661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0, y: 0.036, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 895088987}
   m_RootOrder: 0
@@ -6233,6 +6238,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4774470225827534, guid: c7172d58686ef674d9dd4dbf6f51b603,
     type: 2}
   m_PrefabInternal: {fileID: 605088574}
+--- !u!1 &609061499 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1243457194316184, guid: 16cc15fd45d1be843886955e7452d212,
+    type: 2}
+  m_PrefabInternal: {fileID: 155934867}
 --- !u!1 &622053003
 GameObject:
   m_ObjectHideFlags: 0
@@ -8743,6 +8753,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &843694208 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1838021306785958, guid: 16cc15fd45d1be843886955e7452d212,
+    type: 2}
+  m_PrefabInternal: {fileID: 155934867}
 --- !u!1001 &856961272
 Prefab:
   m_ObjectHideFlags: 0
@@ -9147,7 +9162,7 @@ MonoBehaviour:
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
-  holdButtonToGrab: 0
+  holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
@@ -13942,11 +13957,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4810201082424030, guid: 1e289406ac711eb4ca440d99c764e47a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.0749
+      value: 0.121
       objectReference: {fileID: 0}
     - target: {fileID: 4810201082424030, guid: 1e289406ac711eb4ca440d99c764e47a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.1155
+      value: 0.181
       objectReference: {fileID: 0}
     - target: {fileID: 4810201082424030, guid: 1e289406ac711eb4ca440d99c764e47a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -14131,6 +14146,7 @@ GameObject:
   - component: {fileID: 1385470544}
   - component: {fileID: 1385470543}
   - component: {fileID: 1385470542}
+  - component: {fileID: 1385470549}
   m_Layer: 0
   m_Name: Table Sppon
   m_TagString: Untagged
@@ -14233,7 +14249,7 @@ MonoBehaviour:
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
-  holdButtonToGrab: 0
+  holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
@@ -14290,6 +14306,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1385470540}
   m_Mesh: {fileID: 4300002, guid: 63047feaf49140741bec2aba00c8f0de, type: 3}
+--- !u!65 &1385470549
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1385470540}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04283975, y: 0.19425295, z: 0.022524051}
+  m_Center: {x: -0.000000074505806, y: 0.09219832, z: 0.0059871306}
 --- !u!4 &1393857690
 Transform:
   m_ObjectHideFlags: 0
@@ -17677,6 +17705,11 @@ MonoBehaviour:
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
+--- !u!1 &1703463006 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1087175530735590, guid: 16cc15fd45d1be843886955e7452d212,
+    type: 2}
+  m_PrefabInternal: {fileID: 155934867}
 --- !u!1001 &1705041295
 Prefab:
   m_ObjectHideFlags: 0
@@ -20546,6 +20579,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4289392050234686, guid: 1855a5e6d399b304a890f032ec7b5876,
     type: 2}
   m_PrefabInternal: {fileID: 1952601197}
+--- !u!1 &1953843495 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1239473977539390, guid: 16cc15fd45d1be843886955e7452d212,
+    type: 2}
+  m_PrefabInternal: {fileID: 155934867}
 --- !u!1001 &1960613802
 Prefab:
   m_ObjectHideFlags: 0
@@ -21727,6 +21765,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1500295455400294, guid: 16cc15fd45d1be843886955e7452d212,
     type: 2}
   m_PrefabInternal: {fileID: 155934867}
+--- !u!1 &2110395339 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1671662701334446, guid: 16cc15fd45d1be843886955e7452d212,
+    type: 2}
+  m_PrefabInternal: {fileID: 155934867}
 --- !u!1001 &2127340416
 Prefab:
   m_ObjectHideFlags: 0
@@ -22050,7 +22093,7 @@ MonoBehaviour:
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
-  holdButtonToGrab: 0
+  holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
@@ -22064,3 +22107,17 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+--- !u!64 &2140825252
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2140825246}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: d8c8787ffb0f3b5468fd65d51731b7de, type: 3}

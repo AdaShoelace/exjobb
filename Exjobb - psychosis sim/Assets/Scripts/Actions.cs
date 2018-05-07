@@ -34,6 +34,8 @@ namespace Pierre.Unidux
 		ToggleRadio,
 		PlayPhoneSound,
 		StopPhoneSound,
+		RingPhone,
+		PhonePickedUp,
 		TurnOffAlarmClock,
 		SetLight,
 		BottleTilted,

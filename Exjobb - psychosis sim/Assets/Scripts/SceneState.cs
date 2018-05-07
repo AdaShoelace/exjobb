@@ -9,6 +9,8 @@ namespace Pierre.Unidux
     {
 		  public bool radioMute = true;
 		  public bool phonePlay = false;
+      public bool phoneHasRung = false;
+      public bool ringPhone = false;
       public bool alarmClockMute = false;
    
       public LightState light = LightState.initial();

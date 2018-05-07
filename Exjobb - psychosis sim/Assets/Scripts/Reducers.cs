@@ -56,6 +56,15 @@ namespace Pierre.Unidux
                         state.crowdWhisperIsPlaying = true;
                         state.playCrowdWhisper = false;
                         break;
+
+                    case ActionType.RingPhone:
+                        state.ringPhone = true;
+                        break;
+
+                    case ActionType.PhonePickedUp:
+                        state.ringPhone = false;
+                        state.phoneHasRung = true;
+                        break;
                 }
 
                 return state;

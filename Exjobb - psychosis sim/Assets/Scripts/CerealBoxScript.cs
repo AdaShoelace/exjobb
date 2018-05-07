@@ -22,7 +22,6 @@ namespace Pierre.Unidux
                 {
                     if (state.spawnCereal && !state.cerealHasSpawned)
                     {
-                        print("Spawning cereal");
                         StartCoroutine(SpawnCereal());
                         Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.CerealHasSpawned));
                     }
@@ -43,12 +42,17 @@ namespace Pierre.Unidux
 
         IEnumerator SpawnCereal()
         {
-            for (int i = 0; i < 200; i++)
+            for (int i = 0; i < 100; i++)
             {
                 GameObject temp = Instantiate(Resources.Load("Cereal") as GameObject) as GameObject;
                 temp.transform.SetPositionAndRotation(cerealSpawner.transform.position, cerealSpawner.transform.rotation);
-                yield return new WaitForSecondsRealtime(.1f);
+                yield return new WaitForSecondsRealtime(.01f);
             }
+        }
+
+        public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject) {
+            base.Ungrabbed(previousGrabbingObject);
+            Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.RingPhone));
         }
     }
 }
