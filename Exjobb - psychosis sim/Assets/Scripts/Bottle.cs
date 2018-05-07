@@ -60,6 +60,7 @@ namespace Pierre.Unidux
     {
       for (int i = 0; i < 10; i++)
       {
+        //GameObject temp = Instantiate(Resources.Load("Pill") as GameObject) as GameObject;
         GameObject temp = Instantiate(Resources.Load("Pill") as GameObject) as GameObject;
         temp.transform.SetPositionAndRotation(pillSpawner.transform.position, pillSpawner.transform.rotation);
         yield return new WaitForSecondsRealtime(.1f);
