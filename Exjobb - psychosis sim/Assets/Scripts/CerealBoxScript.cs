@@ -45,12 +45,13 @@ namespace Pierre.Unidux
             for (int i = 0; i < 100; i++)
             {
                 GameObject temp = Instantiate(Resources.Load("Cereal") as GameObject) as GameObject;
-                temp.transform.SetPositionAndRotation(cerealSpawner.transform.position, cerealSpawner.transform.rotation);
+                temp.transform.SetPositionAndRotation(cerealSpawner.transform.position, Quaternion.Euler(new Vector3(0,0,0)));
                 yield return new WaitForSecondsRealtime(.01f);
             }
         }
 
         public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject) {
+            print("Cerealboxed ungrabbed");
             base.Ungrabbed(previousGrabbingObject);
             Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.RingPhone));
         }

@@ -10,6 +10,7 @@ namespace Pierre.Unidux
     {
         Dictionary<string, AudioSource> playerSources = new Dictionary<string, AudioSource>();
         List<AudioSource> ambientSources = new List<AudioSource>();
+        public float countdownTime;
         public void Start()
         {
             GameObject temp = GameObject.Find("SDKManager/SDKSetups/SteamVR/[CameraRig]/Camera (head)/AudioParent");
@@ -29,6 +30,7 @@ namespace Pierre.Unidux
                             if (state.playCrowdWhisper && !state.crowdWhisperIsPlaying)
                             {
                                 //PlayCloseProximityAudio(Resources.Load("Voices/CrowdWhisper", typeof(AudioClip)) as AudioClip);
+                                countdownTime = 3.0f;
                                 PlayCloseProximityAmbientWhisper();
                                 print("Time to play hallucination");
                                 Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.CrowdIsWhispering));
@@ -36,6 +38,12 @@ namespace Pierre.Unidux
                         })
                         .AddTo(this);
         }
+
+        protected void Update()
+        {
+            countdownTime -= Time.deltaTime;
+        }
+
         private void PlayCloseProximityAudio(AudioClip audioClip)
         {
             AudioSource left = playerSources["AudioLeft"];
@@ -53,8 +61,11 @@ namespace Pierre.Unidux
             left.clip = clip;
             AudioSource right = playerSources["AudioRight"];
             right.clip = clip;
-            left.Play();
-            right.Play();
+            if (countdownTime <= 0)
+            {
+                left.Play();
+                right.Play();
+            }
         }
     }
 }

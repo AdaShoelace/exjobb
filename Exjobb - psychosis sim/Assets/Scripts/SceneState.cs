@@ -23,6 +23,9 @@ namespace Pierre.Unidux
       public bool playCrowdWhisper = false;
       public bool spawnCereal = false;
       public bool cerealHasSpawned = false;
+      public bool isSceneOver = false;
+      public bool isSceneStarting = false;
+      public bool hasSceneStarted = false;
     }
 
     [Serializable]

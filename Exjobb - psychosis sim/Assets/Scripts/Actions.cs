@@ -46,6 +46,9 @@ namespace Pierre.Unidux
 		CrowdIsWhispering,
 		CerealBoxTilted,
 		CerealHasSpawned,
+		EndScene,
+		StartScene,
+		SceneHasStarted,
 	}
 }
 

@@ -47,7 +47,6 @@ namespace Pierre.Unidux
                         state.bottleLabelHasChanged = true;
                         break;
 
-                    //test for pill bottle audio
                     case ActionType.PillBottleAudioHallucination:
                         state.playCrowdWhisper = true;
                         break;
@@ -64,6 +63,19 @@ namespace Pierre.Unidux
                     case ActionType.PhonePickedUp:
                         state.ringPhone = false;
                         state.phoneHasRung = true;
+                        break;
+
+                    case ActionType.EndScene:
+                        state.isSceneOver = true;
+                        break;
+
+                    case ActionType.StartScene:
+                        state.isSceneStarting = true;
+                        break;
+
+                    case ActionType.SceneHasStarted:
+                        state.hasSceneStarted = true;
+                        state.isSceneStarting = false;
                         break;
                 }
 
