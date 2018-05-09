@@ -12,7 +12,10 @@ namespace Pierre.Unidux
         List<AudioSource> ambientSources = new List<AudioSource>();
         public void Start()
         {
-            GameObject temp = GameObject.Find("SDKManager/SDKSetups/SteamVR/[CameraRig]/Camera (head)/AudioParent");
+            GameObject temp =
+                GameObject.Find("SDKManager/SDKSetups/SteamVR").gameObject.activeSelf ?
+                    temp = GameObject.Find("SDKManager/SDKSetups/SteamVR/[CameraRig]/Camera (head)/AudioParent")
+                    : temp = GameObject.Find("SDKManager/SDKSetups/Simulator/VRSimulatorCameraRig/AudioParent");
             foreach (AudioSource go in temp.GetComponentsInChildren<AudioSource>())
             {
                 AudioSource aso = go.GetComponent("AudioSource") as AudioSource;
