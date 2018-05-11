@@ -8,16 +8,11 @@ namespace Pierre.Unidux
 {
     public class PhoneScript : VRTK_InteractableObject
     {
-        public ActionType ToggleRadio = ActionType.ToggleRadio;
-        public AudioClip currentClip;
         private AudioSource phone;
-        private AudioClip dialTone, ringTone;
+        private bool initAccidentHallucination = false;
         public void Start()
         {
             phone = gameObject.GetComponent(typeof(AudioSource)) as AudioSource;
-            dialTone = Resources.Load("Sound clips/america-dial-tone", typeof(AudioClip)) as AudioClip;
-            ringTone = Resources.Load("Sound clips/phone-ringing", typeof(AudioClip)) as AudioClip;
-            //(gameObject.GetComponent(typeof(Rigidbody)) as Rigidbody).constraints = RigidbodyConstraints.FreezeAll;
             Unidux.Subject
                 .TakeUntilDisable(this)
                 .StartWith(Unidux.State)
@@ -25,19 +20,24 @@ namespace Pierre.Unidux
                 {
                     if (state.ringPhone && !state.phoneHasRung)
                     {
-                        phone.clip = ringTone;
-                        phone.loop = true;
+                        print("Phone is ringing");
+                        phone.clip = Resources.Load("Sound clips/phone-ringing", typeof(AudioClip)) as AudioClip;
+                        initAccidentHallucination = true;
                         phone.Play();
                     }
-                    if (phone.isPlaying && !state.phonePlay)
+                    else if (phone.isPlaying && !state.phonePlay)
                     {
-                        phone.clip = dialTone;
                         phone.Stop();
                     }
                     else if (!phone.isPlaying && state.phonePlay)
                     {
-                        phone.clip = dialTone;
+                        phone.clip = Resources.Load("Sound clips/america-dial-tone", typeof(AudioClip)) as AudioClip;
                         phone.Play();
+                        if(initAccidentHallucination)
+                        {
+                            Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.AccidentHallucination));
+                            initAccidentHallucination = false;
+                        }
                     }
                 })
                 .AddTo(this);
@@ -45,13 +45,13 @@ namespace Pierre.Unidux
         public override void Grabbed(VRTK_InteractGrab ob)
         {
             base.Grabbed(ob);
-            Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.PlayPhoneSound));
+            Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.PhonePickedUp));
         }
 
         public override void Ungrabbed(VRTK_InteractGrab ob)
         {
             base.Ungrabbed(ob);
-            Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.StopPhoneSound));
+            Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.PhoneDropped));
         }
     }
 }

@@ -32,9 +32,8 @@ namespace Pierre.Unidux
 	public enum ActionType
 	{
 		ToggleRadio,
-		PlayPhoneSound,
-		StopPhoneSound,
 		RingPhone,
+		PhoneDropped,	
 		PhonePickedUp,
 		TurnOffAlarmClock,
 		SetLight,
@@ -46,6 +45,7 @@ namespace Pierre.Unidux
 		CrowdIsWhispering,
 		CerealBoxTilted,
 		CerealHasSpawned,
+		AccidentHallucination,
 		EndScene,
 	}
 }

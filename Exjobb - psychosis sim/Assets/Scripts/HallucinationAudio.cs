@@ -10,6 +10,7 @@ namespace Pierre.Unidux
     {
         Dictionary<string, AudioSource> playerSources = new Dictionary<string, AudioSource>();
         List<AudioSource> ambientSources = new List<AudioSource>();
+        private bool isDelayCoroutineExecuting = false;
         public void Start()
         {
             GameObject temp =
@@ -28,13 +29,16 @@ namespace Pierre.Unidux
                         .StartWith(Unidux.State)
                         .Subscribe(state =>
                         {
-                            //test
                             if (state.playCrowdWhisper && !state.crowdWhisperIsPlaying)
                             {
-                                //PlayCloseProximityAudio(Resources.Load("Voices/CrowdWhisper", typeof(AudioClip)) as AudioClip);
                                 PlayCloseProximityAmbientWhisper();
                                 print("Time to play hallucination");
                                 Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.CrowdIsWhispering));
+                            }
+                            if (state.playAccidentHallucination)
+                            {
+                                var clipToPlay = Resources.Load("Sound clips/bike-honking", typeof(AudioClip)) as AudioClip;
+                                StartCoroutine(PlayCloseProximityAudioAfterDelay(clipToPlay, 3));
                             }
                         })
                         .AddTo(this);
@@ -49,15 +53,30 @@ namespace Pierre.Unidux
             right.Play();
         }
 
+        private IEnumerator PlayCloseProximityAudioAfterDelay(AudioClip audioClip, int timeInSeconds)
+        {
+            if (isDelayCoroutineExecuting)
+                yield break;
+
+            isDelayCoroutineExecuting = true;
+
+            yield return new WaitForSeconds(timeInSeconds);
+
+            PlayCloseProximityAudio(audioClip);
+            isDelayCoroutineExecuting = false;
+        }
+
         private void PlayCloseProximityAmbientWhisper()
         {
             AudioClip clip = Resources.Load("Voices/CrowdWhisper", typeof(AudioClip)) as AudioClip;
-            AudioSource left = playerSources["AudioLeft"];
-            left.clip = clip;
-            AudioSource right = playerSources["AudioRight"];
-            right.clip = clip;
-            left.Play();
-            right.Play();
+            AudioSource front = playerSources["AudioFront"];
+            front.clip = clip;
+            AudioSource back = playerSources["AudioBack"];
+            back.clip = clip;
+            front.loop = true;
+            back.loop = true;
+            front.Play();
+            back.Play();
         }
     }
 }

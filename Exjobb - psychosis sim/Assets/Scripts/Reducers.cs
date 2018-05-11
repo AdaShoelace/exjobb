@@ -16,12 +16,6 @@ namespace Pierre.Unidux
                     case ActionType.ToggleRadio:
                         state.radioMute = !state.radioMute;
                         break;
-					case ActionType.PlayPhoneSound:
-						state.phonePlay = true;
-						break;
-					case ActionType.StopPhoneSound:
-						state.phonePlay = false;
-						break;
                     case ActionType.TurnOffAlarmClock:
                         state.alarmClockMute = !state.alarmClockMute;
                         break;
@@ -46,25 +40,27 @@ namespace Pierre.Unidux
                     case ActionType.BottleLabelHasChanged:
                         state.bottleLabelHasChanged = true;
                         break;
-
                     case ActionType.PillBottleAudioHallucination:
                         state.playCrowdWhisper = true;
                         break;
-
                     case ActionType.CrowdIsWhispering:
                         state.crowdWhisperIsPlaying = true;
                         state.playCrowdWhisper = false;
                         break;
-
                     case ActionType.RingPhone:
                         state.ringPhone = true;
                         break;
-
                     case ActionType.PhonePickedUp:
                         state.ringPhone = false;
                         state.phoneHasRung = true;
+                        state.phonePlay = true;
                         break;
-
+                    case ActionType.PhoneDropped:
+                        state.phonePlay = false;
+                        break;
+                    case ActionType.AccidentHallucination:
+                        state.playAccidentHallucination = true;
+                        break;
                     case ActionType.EndScene:
                         state.hasSceneEnded = true;
                         break;
