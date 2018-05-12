@@ -4,18 +4,20 @@ using Unidux;
 using UniRx;
 using UnityEngine;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace Pierre.Unidux
 {
-	public class Unidux : SingletonMonoBehaviour<Unidux>, IStoreAccessor {
-
-		private Store<SceneState> _store;
+    public class Unidux : SingletonMonoBehaviour<Unidux>, IStoreAccessor
+    {
+        private static string logFile = "Assets/Resources/Logs/" + System.DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + ".txt";
+        private Store<SceneState> _store;
 
         public IStoreObject StoreObject
         {
             get { return Store; }
         }
-        
+
         public static SceneState State
         {
             get { return Store.State; }
@@ -36,10 +38,11 @@ namespace Pierre.Unidux
 
         public static Store<SceneState> Store
         {
-            get { 
+            get
+            {
                 Instance._store = Instance._store ?? new Store<SceneState>(InitialState, new Reducers.Reducer());
                 return Instance._store;
-                }
+            }
         }
 
         public static object Dispatch<TAction>(TAction action)
@@ -69,8 +72,19 @@ namespace Pierre.Unidux
                 var result = next(action);
                 sb.AppendLine("Next state: " + JsonConvert.SerializeObject((SceneState)store.ObjectState));
                 Debug.Log(sb.ToString());
+                LogToFile(logFile, sb.ToString());
                 return result;
             };
         }
-	}
+        private static void LogToFile(string path, string ToLog)
+        {
+            if (!File.Exists(path))
+            {
+                File.Create(path).Close();
+            }
+            StreamWriter sw = File.AppendText(path);
+            sw.WriteLine(ToLog);
+            sw.Close();
+        }
+    }
 }

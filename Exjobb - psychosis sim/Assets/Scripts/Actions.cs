@@ -47,6 +47,8 @@ namespace Pierre.Unidux
 		CerealHasSpawned,
 		AccidentHallucination,
 		EndScene,
+		Knock,
+		HasKnocked,
 	}
 }
 

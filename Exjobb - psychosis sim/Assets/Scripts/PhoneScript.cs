@@ -33,11 +33,6 @@ namespace Pierre.Unidux
                     {
                         phone.clip = Resources.Load("Sound clips/america-dial-tone", typeof(AudioClip)) as AudioClip;
                         phone.Play();
-                        if(initAccidentHallucination)
-                        {
-                            Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.AccidentHallucination));
-                            initAccidentHallucination = false;
-                        }
                     }
                 })
                 .AddTo(this);

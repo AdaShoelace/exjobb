@@ -10,7 +10,7 @@ namespace Pierre.Unidux
     {
         Dictionary<string, AudioSource> playerSources = new Dictionary<string, AudioSource>();
         List<AudioSource> ambientSources = new List<AudioSource>();
-        private bool isDelayCoroutineExecuting = false;
+        private bool executeHallucination = true;
         public void Start()
         {
             GameObject temp =
@@ -35,10 +35,18 @@ namespace Pierre.Unidux
                                 print("Time to play hallucination");
                                 Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.CrowdIsWhispering));
                             }
-                            if (state.playAccidentHallucination)
+                            if (state.playAccidentHallucination && executeHallucination)
                             {
-                                var clipToPlay = Resources.Load("Sound clips/bike-honking", typeof(AudioClip)) as AudioClip;
-                                StartCoroutine(PlayCloseProximityAudioAfterDelay(clipToPlay, 3));
+                                executeHallucination = false;
+                                StartCoroutine(PlayCloseProximityAudioAfterDelay());
+                            }
+                            if (state.doKnock && !state.hasKnocked)
+                            {
+                                AudioSource wardrobe = GameObject.Find("WardrobeAudio").GetComponent<AudioSource>() as AudioSource;
+                                print(wardrobe == null ? "Wardrobe is null" : "Wardrobe is success!");
+                                wardrobe.Play();
+                                print("HasKnocked");
+                                Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.HasKnocked));
                             }
                         })
                         .AddTo(this);
@@ -46,24 +54,28 @@ namespace Pierre.Unidux
         private void PlayCloseProximityAudio(AudioClip audioClip)
         {
             AudioSource left = playerSources["AudioLeft"];
-            left.clip = audioClip;
+            //left.clip = audioClip;
             AudioSource right = playerSources["AudioRight"];
-            right.clip = audioClip;
-            left.Play();
-            right.Play();
+            //right.clip = audioClip;
+            print("Left loop: " + left.loop.ToString() + " Right loop: " + right.loop.ToString());
+            left.PlayOneShot(audioClip);
+            right.PlayOneShot(audioClip);
         }
 
-        private IEnumerator PlayCloseProximityAudioAfterDelay(AudioClip audioClip, int timeInSeconds)
+        private IEnumerator PlayCloseProximityAudioAfterDelay()
         {
-            if (isDelayCoroutineExecuting)
-                yield break;
+            AudioClip[] temp = {
+                Resources.Load("Sound clips/EndingHallucinations/accident", typeof(AudioClip)) as AudioClip,
+                Resources.Load("Sound clips/EndingHallucinations/dont_care", typeof(AudioClip)) as AudioClip,
+                Resources.Load("Sound clips/EndingHallucinations/dont_love_them", typeof(AudioClip)) as AudioClip,
+                Resources.Load("Sound clips/EndingHallucinations/theyre_hurt", typeof(AudioClip)) as AudioClip,
+                Resources.Load("Sound clips/EndingHallucinations/your_fault", typeof(AudioClip)) as AudioClip,
+            };
+            for( int i = 0; i < temp.Length; i++) {
+                PlayCloseProximityAudio(temp[i]);
+                yield return new WaitForSeconds((float)temp[i].length + Random.Range(2, 4));
+            }
 
-            isDelayCoroutineExecuting = true;
-
-            yield return new WaitForSeconds(timeInSeconds);
-
-            PlayCloseProximityAudio(audioClip);
-            isDelayCoroutineExecuting = false;
         }
 
         private void PlayCloseProximityAmbientWhisper()

@@ -25,6 +25,8 @@ namespace Pierre.Unidux
       public bool cerealHasSpawned = false;
       public bool playAccidentHallucination = false;
       public bool hasSceneEnded = false;
+      public bool doKnock = false;
+      public bool hasKnocked = false;
     }
 
     [Serializable]
