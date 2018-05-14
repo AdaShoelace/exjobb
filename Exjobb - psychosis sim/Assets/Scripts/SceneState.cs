@@ -27,6 +27,7 @@ namespace Pierre.Unidux
       public bool hasSceneEnded = false;
       public bool doKnock = false;
       public bool hasKnocked = false;
+      public bool lowerWhisperVolume = false;
     }
 
     [Serializable]

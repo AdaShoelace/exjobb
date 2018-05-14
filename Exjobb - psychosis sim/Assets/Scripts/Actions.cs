@@ -49,6 +49,8 @@ namespace Pierre.Unidux
 		EndScene,
 		Knock,
 		HasKnocked,
+		LowerWhisperVolume,
+		ResetWhisperVolume,
 	}
 }
 

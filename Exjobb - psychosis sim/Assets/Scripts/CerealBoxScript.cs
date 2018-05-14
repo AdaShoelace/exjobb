@@ -34,7 +34,9 @@ namespace Pierre.Unidux
             float x = cerealSpawner.transform.rotation.eulerAngles.x;
             float z = cerealSpawner.transform.rotation.eulerAngles.z;
 
-            if (((x > SPAWN_ANGLE_LOWER.x && x < SPAWN_ANGLE_UPPER.x) || (z > SPAWN_ANGLE_LOWER.z && z < SPAWN_ANGLE_UPPER.z)) && !Unidux.Store.State.pillHasSpawned)
+            if (((x > SPAWN_ANGLE_LOWER.x && x < SPAWN_ANGLE_UPPER.x) ||
+                (z > SPAWN_ANGLE_LOWER.z && z < SPAWN_ANGLE_UPPER.z)) &&
+                !Unidux.Store.State.cerealHasSpawned)
             {
                 Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.CerealBoxTilted));
             }
@@ -50,7 +52,8 @@ namespace Pierre.Unidux
             }
         }
 
-        public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject) {
+        public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject)
+        {
             base.Ungrabbed(previousGrabbingObject);
             Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.RingPhone));
         }

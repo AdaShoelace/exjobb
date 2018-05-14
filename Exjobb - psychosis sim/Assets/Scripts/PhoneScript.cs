@@ -47,6 +47,7 @@ namespace Pierre.Unidux
         {
             base.Ungrabbed(ob);
             Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.PhoneDropped));
+            Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.LowerWhisperVolume));
         }
     }
 }

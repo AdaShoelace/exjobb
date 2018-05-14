@@ -72,6 +72,12 @@ namespace Pierre.Unidux
                     case ActionType.HasKnocked:
                         state.hasKnocked = true;
                         break;
+                    case ActionType.LowerWhisperVolume:
+                        state.lowerWhisperVolume = true;
+                        break;
+                    case ActionType.ResetWhisperVolume:
+                        state.lowerWhisperVolume = false;
+                        break;
                 }
 
                 return state;

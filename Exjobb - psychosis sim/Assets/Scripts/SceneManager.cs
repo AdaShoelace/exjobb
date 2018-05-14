@@ -23,6 +23,7 @@ namespace Pierre.Unidux
                     if(state.hasSceneEnded)
                     {
                         GetComponent<VRTK_HeadsetFade>().Fade(Color.black, 3);
+                        Application.Quit();
                     }
                 })
                 .AddTo(this);

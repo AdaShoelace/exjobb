@@ -10,6 +10,7 @@ namespace Pierre.Unidux
     {
         Dictionary<string, AudioSource> playerSources = new Dictionary<string, AudioSource>();
         List<AudioSource> ambientSources = new List<AudioSource>();
+        float originalWhisperVolume;
         private bool executeHallucination = true;
         public void Start()
         {
@@ -17,12 +18,15 @@ namespace Pierre.Unidux
                 GameObject.Find("SDKManager/SDKSetups/SteamVR").gameObject.activeSelf ?
                     temp = GameObject.Find("SDKManager/SDKSetups/SteamVR/[CameraRig]/Camera (head)/AudioParent")
                     : temp = GameObject.Find("SDKManager/SDKSetups/Simulator/VRSimulatorCameraRig/AudioParent");
+
             foreach (AudioSource go in temp.GetComponentsInChildren<AudioSource>())
             {
                 AudioSource aso = go.GetComponent("AudioSource") as AudioSource;
                 aso.enabled = true;
                 playerSources.Add(go.transform.name, aso);
             }
+
+            originalWhisperVolume = playerSources["AudioFront"].volume;
 
             Unidux.Subject
                         .TakeUntilDisable(this)
@@ -48,6 +52,16 @@ namespace Pierre.Unidux
                                 print("HasKnocked");
                                 Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.HasKnocked));
                             }
+                            if (state.lowerWhisperVolume)
+                            {
+                                playerSources["AudioFront"].volume = originalWhisperVolume / 2;
+                                playerSources["AudioBack"].volume = originalWhisperVolume / 2;
+                            }
+                            else if (!state.lowerWhisperVolume)
+                            {
+                                playerSources["AudioFront"].volume = originalWhisperVolume;
+                                playerSources["AudioBack"].volume = originalWhisperVolume;
+                            }
                         })
                         .AddTo(this);
         }
@@ -71,11 +85,12 @@ namespace Pierre.Unidux
                 Resources.Load("Sound clips/EndingHallucinations/theyre_hurt", typeof(AudioClip)) as AudioClip,
                 Resources.Load("Sound clips/EndingHallucinations/your_fault", typeof(AudioClip)) as AudioClip,
             };
-            for( int i = 0; i < temp.Length; i++) {
+            for (int i = 0; i < temp.Length; i++)
+            {
                 PlayCloseProximityAudio(temp[i]);
                 yield return new WaitForSeconds((float)temp[i].length + Random.Range(2, 4));
             }
-
+            Unidux.Store.Dispatch(Actions.ActionCreator.Create(ActionType.ResetWhisperVolume));
         }
 
         private void PlayCloseProximityAmbientWhisper()
