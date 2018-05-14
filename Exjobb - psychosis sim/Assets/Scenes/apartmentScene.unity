@@ -362,7 +362,7 @@ Prefab:
     - target: {fileID: 82318383203523330, guid: b4938fa2bcc378148ab45b2227a86e67,
         type: 2}
       propertyPath: Priority
-      value: 226
+      value: 231
       objectReference: {fileID: 0}
     - target: {fileID: 114950697334531792, guid: b4938fa2bcc378148ab45b2227a86e67,
         type: 2}
@@ -17707,6 +17707,26 @@ Prefab:
         type: 2}
       propertyPath: bypassRoomEffects
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82422498418366690, guid: b4938fa2bcc378148ab45b2227a86e67,
+        type: 2}
+      propertyPath: Priority
+      value: 231
+      objectReference: {fileID: 0}
+    - target: {fileID: 82422498418366690, guid: b4938fa2bcc378148ab45b2227a86e67,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 82318383203523330, guid: b4938fa2bcc378148ab45b2227a86e67,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 82318383203523330, guid: b4938fa2bcc378148ab45b2227a86e67,
+        type: 2}
+      propertyPath: m_Pitch
+      value: 1.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4938fa2bcc378148ab45b2227a86e67, type: 2}

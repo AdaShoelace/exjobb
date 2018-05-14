@@ -14,7 +14,7 @@ namespace Pierre.Unidux
         private bool executeHallucination = true;
         public void Start()
         {
-            GameObject temp = GameObject.Find("SDKManager/SDKSetups/SteamVR/[CameraRig]/Camera (head)/AudioParent")
+            GameObject temp = GameObject.Find("SDKManager/SDKSetups/SteamVR/[CameraRig]/Camera (head)/AudioParent");
             //GameObject temp = GameObject.Find("SDKManager/SDKSetups/Simulator/VRSimulatorCameraRig/AudioParent");
 
             foreach (AudioSource go in temp.GetComponentsInChildren<AudioSource>())
